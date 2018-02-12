@@ -10,6 +10,7 @@ app.use(cors({optionsSuccessStatus:200}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
+    console.log(req.headers);
     res.sendFile(__dirname + '/views/index.html');
 });
 
