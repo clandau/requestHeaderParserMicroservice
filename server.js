@@ -10,8 +10,14 @@ app.use(cors({optionsSuccessStatus:200}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    console.log(req.headers);
     res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/api/whoami', (req, res) => {
+    let software = req.headers['user-agent'];
+    let language = req.headers['accept-language'];
+    let ipAddress = req.connection.remoteAddress;
+    res.json({'ipaddress': ipAddress, 'language':language, 'software':software});
 });
 
 const listener = app.listen(PORT, () => {
