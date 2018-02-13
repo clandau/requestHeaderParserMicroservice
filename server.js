@@ -14,11 +14,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/whoami', (req, res) => {
-    res.writeHead(200, {"Content-Type": "text/plain"});
     let software = req.headers['user-agent'];
     let language = req.headers['accept-language'];
-    let ipAddress = req.connection.remoteAddress;
-    res.json({'ipaddress': ipAddress, 'language':language, 'software':software});
+    let ip = req.connection.remoteAddress;
+    res.json({'ipaddress': ip, 'language':language, 'software':software});
 });
 
 const listener = app.listen(PORT, () => {
