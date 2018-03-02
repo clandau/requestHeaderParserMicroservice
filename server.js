@@ -20,6 +20,11 @@ app.get('/api/whoami', (req, res) => {
     res.json({'ipaddress': ip, 'language':language, 'software':software});
 });
 
+//handle page not found errors
+app.get('*', function(req, res){
+    res.sendFile(__dirname + '/views/oops.html', 404);
+    });
+
 const listener = app.listen(PORT, () => {
     console.log('You are listening on port ' + PORT);
 });
