@@ -35,3 +35,8 @@ ul {
     bottom: 0;
     font-size: 12px;
 }
+
+li :visited {
+    text-decoration: none;
+    color: #737373;
+}
